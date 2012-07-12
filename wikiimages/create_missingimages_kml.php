@@ -85,32 +85,15 @@ while($rFindMissing = mysql_fetch_object($qFindMissing)) {
 	$link = $rFindMissing->el_to;
 	$title = htmlspecialchars($rFindMissing->page_title);
 	$title = str_replace("_", " ", $title);
-	$antall = $rFindMissing->antall;
-#	if($antall == 0) $style = "ugjort";
-#	else $style = "gjort";
 	$size = $rFindMissing->page_len;
 	if($size < $red) $style = "red";
 	elseif($size < $orange) $style = "orange";
 	elseif($size < $blue) $style = "blue";
 	else $style = "green";
-#	$qFindImages = mysql_query("SELECT COUNT(*) AS antall FROM imagelinks i WHERE i.il_form = '$rFindMissing->page_id'");
-#	$rFindImages = mysql_fetch_object($qFindImages);
-	#	$antall = $rFindImages->antall;
 	$koordinater = strstr($link, "&params=");
 	$koordinater = str_replace("&params=", "", $koordinater);
-#	$split = preg_split("/:/", $koordinater);
-#	$koordinater = $split[0];
-#	$split = preg_split("/_type/", $koordinater);
-#	$koordinater = $split[0];
-#	$split = preg_split("/_region/", $koordinater);
-#	$koordinater = $split[0];
 	$md = new map_sources ( $koordinater , "Some title" ) ;
-	#print_r($md->p);
-	#$koordinater = str_replace("_", "", $koordinater);
-#	$koordinater = strstr($koordinater, "_type", TRUE);
-#	$koordinater = strstr($koordinater, "_region", TRUE);
 	#	echo $koordinater."\n";
-	if($antall == 0) {
 	echo '
 		<Placemark id="'.$rFindMissing->page_id.'">
 		<name><![CDATA[';
@@ -128,7 +111,6 @@ while($rFindMissing = mysql_fetch_object($qFindMissing)) {
 	<Snippet></Snippet>
 	<description><![CDATA[<p>'.sprintf($description, $rFindDB->domain, $rFindMissing->page_title, $title).'</p>]]></description>
 	</Placemark>';
-	} // End antall > 0
 }
 
 echo '</Folder>
