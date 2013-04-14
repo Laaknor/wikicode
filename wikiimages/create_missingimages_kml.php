@@ -25,6 +25,9 @@ $description = 'The Wikipedia article <a href="http://%s/wiki/%s">%s</a> is miss
 
 switch($rFindDB->lang) {
 	case "no":
+		$description = 'Wikipedia-artikkelen <a href="http://%s/wiki/%s">%s</a> mangler bilder';
+		$URL = '//toolserver.org/~geohack/geohack.php%';
+		break;
 	case "nn":
 	case "sv":
 	case "da":
@@ -35,6 +38,9 @@ switch($rFindDB->lang) {
 		break;
 	case "he":
 		$URL = 'http://stable.toolserver.org/geohack/geohack.php%';
+		break;
+	case "de":
+		$URL = '//toolserver.org/~geohack/geohack.php%';
 		break;
 	default:
 		break;
@@ -107,9 +113,9 @@ while($rFindMissing = mysql_fetch_object($qFindMissing)) {
 	echo $md->p->londeg.",";
 	echo $md->p->latdeg;
 	echo '</coordinates>
-	</Point>
-	<Snippet></Snippet>
-	<description><![CDATA[<p>'.sprintf($description, $rFindDB->domain, $rFindMissing->page_title, $title).'</p>]]></description>
+	</Point>';
+#	<Snippet></Snippet>
+	echo '<description><![CDATA[<p>'.sprintf($description, $rFindDB->domain, $rFindMissing->page_title, $title).'</p>]]></description>
 	</Placemark>';
 }
 
