@@ -90,12 +90,12 @@ if ($ARGV[0]) {
 
 #print "Lang: $lang\n";
 
-$basefile = "/home/laaknor/temp/manglerinterwiki.wiki";
+$basefile = "/data/project/laaknortools/temp/manglerinterwiki.wiki";
 $a = 0;
 $line = 0;
 
 
-open SCRIPT, ">/home/laaknor/temp/uploadmissingiw";
+open SCRIPT, ">/data/project/laaknortools/temp/uploadmissingiw";
 open FILE, ">$basefile";
 
 

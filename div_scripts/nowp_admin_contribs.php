@@ -1,5 +1,5 @@
 <?php
-$file = "/home/laaknor/public_html/SQL/nowiki_admin_contrib.txt";
+$file = "/data/project/laaknortools/temp/nowp_admin_contrib.txt";
 $fp = fopen($file, "r");
 #echo "--start--\n";
 #echo "--title--Wikiquote:Manglende artikler med mange IW--titleend--\n";
@@ -7,9 +7,9 @@ $fp = fopen($file, "r");
 
 echo "--start--\n";
 echo "--title--Wikipedia:Administratorer/liste/bidrag/automatisk--titleend--\n";
-echo "<!-- Automatisk oppdatert av Toolserver/Laaknor ".date("Y/m/d")." -->\n";
+echo "<!-- Automatisk oppdatert av WMFLabs/Laaknor ".date("Y/m/d")." -->\n";
 
-#$line = 0;
+$line = 0;
 #$pages = 2;
 
 while($fline = fgets($fp)) {
